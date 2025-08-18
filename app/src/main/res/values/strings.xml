@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HdrDemo</string>
+    <string name="static_pic">静图</string>
+    <string name="anim_pic">动图</string>
+    <string name="settings">设置</string>
+    <string name="scence_name">场景测试</string>
+    <string name="tracking_name">埋点测试</string>
+    <string name="memory_name">内存测试</string>
+    <string name="perf_name">性能测试</string>
+    <string name="resolution_name">分辨率测试</string>
+    <string name="color_name">色差测试</string>
+    <string name="case_name">功能测试</string>
+    <string name="show_pic">图片加载</string>
+    <string name="multi_show_pic">多图加载</string>
+    <string name="multi_pic_setting">多图加载设置</string>
+
+</resources>
