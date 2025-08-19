@@ -193,35 +193,35 @@ public class ShowBugActivity extends BaseActivity {
                         }
                         @Override
                         public void onFinalImageSet(String id, @Nullable ImageInfo imageInfo, @Nullable Animatable animatable) {
-//                            if (imageInfo instanceof CloseableStaticBitmap) {
-//                                Bitmap bitmap = ((CloseableStaticBitmap) imageInfo).getUnderlyingBitmap();
-//                                final Bitmap newBitmap = bitmap.copy(bitmap.getConfig(), false);
-//                                Log.d(TAG, "onFinalImageSet: ----bitmap config = " + bitmap.getConfig() + ", getColorSpace = " + bitmap.getColorSpace());
-//                                if (Build.VERSION.SDK_INT >= 34) {
-//                                    Log.d(TAG, "onFinalImageSet: ----bitmap hasGainmap = " + GainmapReflector.hasGainmap(bitmap));
-//                                    if (GainmapReflector.hasGainmap(bitmap)) {
-//                                        Log.d("HDR", "图像包含增益图");
-//                                        Object gainmap = GainmapReflector.getGainmap(bitmap);
-//                                        Log.d(TAG, "onFinalImageSet: --- gainmap = " + gainmap);
-//                                        // 处理增益图...
-//                                    } else {
-//                                        Log.d("HDR", "图像不包含增益图");
-//                                    }
-//                                }
-//                                draweeViewImg.postDelayed(new Runnable() {
-//                                    @SuppressLint("NewApi")
-//                                    @Override
-//                                    public void run() {
-//                                        Log.e(TAG, "onFinalImageSet: ---@@ 11 @@---newBitmap getColorSpace = " + newBitmap.getColorSpace());
-//                                        if (isHdrSupported()) {
-////                                                newBitmap.setColorSpace(ColorSpace.get(ColorSpace.Named.BT2020_PQ));
-//                                        }
-//                                        Log.e(TAG, "onFinalImageSet: ---@@ 22 @@---newBitmap getColorSpace = " + newBitmap.getColorSpace());
-//                                        Toast.makeText(ShowBugActivity.this, "显示带增益的bitmap", Toast.LENGTH_SHORT).show();
-//                                        draweeViewImg.setImageBitmap(newBitmap);
-//                                    }
-//                                }, 1000);
-//                            }
+                            if (imageInfo instanceof CloseableStaticBitmap) {
+                                Bitmap bitmap = ((CloseableStaticBitmap) imageInfo).getUnderlyingBitmap();
+                                final Bitmap newBitmap = bitmap.copy(bitmap.getConfig(), false);
+                                Log.d(TAG, "onFinalImageSet: ----bitmap config = " + bitmap.getConfig() + ", getColorSpace = " + bitmap.getColorSpace());
+                                if (Build.VERSION.SDK_INT >= 34) {
+                                    Log.d(TAG, "onFinalImageSet: ----bitmap hasGainmap = " + GainmapReflector.hasGainmap(bitmap));
+                                    if (GainmapReflector.hasGainmap(bitmap)) {
+                                        Log.d("HDR", "图像包含增益图");
+                                        Object gainmap = GainmapReflector.getGainmap(bitmap);
+                                        Log.d(TAG, "onFinalImageSet: --- gainmap = " + gainmap);
+                                        // 处理增益图...
+                                    } else {
+                                        Log.d("HDR", "图像不包含增益图");
+                                    }
+                                }
+                                draweeViewImg.postDelayed(new Runnable() {
+                                    @SuppressLint("NewApi")
+                                    @Override
+                                    public void run() {
+                                        Log.e(TAG, "onFinalImageSet: ---@@ 11 @@---newBitmap getColorSpace = " + newBitmap.getColorSpace());
+                                        if (isHdrSupported()) {
+//                                                newBitmap.setColorSpace(ColorSpace.get(ColorSpace.Named.BT2020_PQ));
+                                        }
+                                        Log.e(TAG, "onFinalImageSet: ---@@ 22 @@---newBitmap getColorSpace = " + newBitmap.getColorSpace());
+                                        Toast.makeText(ShowBugActivity.this, "显示带增益的bitmap", Toast.LENGTH_SHORT).show();
+                                        draweeViewImg.setImageBitmap(newBitmap);
+                                    }
+                                }, 1000);
+                            }
                         }
 
                         @Override
