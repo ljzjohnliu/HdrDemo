@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import com.facebook.common.logging.FLog
 import com.facebook.drawee.backends.pipeline.Fresco
+import com.study.hdrdemo.utils.TestFile
 import org.json.JSONObject
 import kotlin.collections.ArrayList
 
@@ -97,7 +98,8 @@ class HdrDemoApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         FLog.setMinimumLoggingLevel(FLog.VERBOSE)
-        Fresco.initialize(this);
+        Fresco.initialize(this)
+        TestFile.filePathType = TestFile.FILE_PATH_TYPE_SDCARD
     }
 
     override fun attachBaseContext(base: Context?) {

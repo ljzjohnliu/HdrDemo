@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ColorSpace;
@@ -109,9 +111,13 @@ public class ShowSDRActivity extends BaseActivity {
         // 在你的 Activity 中
         Log.e(TAG, "onCreate: Build.VERSION.SDK_INT = " + Build.VERSION.SDK_INT + ", isHdrSupported() = " + isHdrSupported());
 
-//        loadNormalBySystemApi(draweeViewImg, TestFile.getFilePath(), true);
+        String filePath = TestFile.getFilePath();
+        File file = new File(Uri.parse(filePath).getPath());
+        Log.d(TAG, "testHdrByFresco: filePath = " + filePath + ", file = " + file.getAbsolutePath() + ", exists = " + file.exists());
+
+        loadNormalBySystemApi(draweeViewImg, TestFile.getFilePath(), true);
 //        loadNormalBySystemApi2(draweeViewImg, TestFile.getFilePath(), true);
-        testHdrByFresco(draweeViewImg, TestFile.getFilePath(), true);
+//        testHdrByFresco(draweeViewImg, TestFile.getFilePath(), true);
 
 //        draweeViewImg.postDelayed(new Runnable() {
 //            @Override
@@ -167,6 +173,7 @@ public class ShowSDRActivity extends BaseActivity {
         File file = new File(Uri.parse(filePath).getPath());
         Log.d(TAG, "testHdrByFresco: filePath = " + filePath + ", file = " + file.getAbsolutePath() + ", exists = " + file.exists());
         try {
+            filePath = "asset:///" + "jpg_hdr_01.jpg";
             ImageRequestBuilder builder = ImageRequestBuilder
                     .newBuilderWithSource(Uri.parse(filePath))
                     .disableDiskCache()
@@ -222,7 +229,7 @@ public class ShowSDRActivity extends BaseActivity {
 
                         @Override
                         public void onFailure(String id, Throwable throwable) {
-                            Log.d(TAG, "onFailure: ^^^^^^^^1111^^^^^^");
+                            Log.d(TAG, "onFailure: ^^^^^^^^1111^^^^^^throwable = " + throwable);
                         }
 
                         public void onFailure(String id, ImageRequest imageRequest, Throwable throwable) {
@@ -254,8 +261,8 @@ public class ShowSDRActivity extends BaseActivity {
     private void loadNormalBySystemApi(SimpleDraweeView simpleDraweeView, String filePath, boolean useInputStream) {
         File file = new File(Uri.parse(filePath).getPath());
         Log.d(TAG, "loadNormalBySystemApi: filePath = " + filePath + ", file = " + file.getAbsolutePath() + ", exists = " + file.exists());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             // 使用广色域颜色空间以获得更好的HDR效果
 //            options.inPreferredColorSpace = ColorSpace.get(ColorSpace.Named.SRGB);

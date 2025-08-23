@@ -142,10 +142,10 @@ public class ShowHDRActivity extends BaseActivity {
 
 //        loadNormalBySystemApi(draweeViewImg, TestFile.getFilePath(), true);
 //        loadNormalBySystemApi2(draweeViewImg, TestFile.getFilePath(), true);
-//        loadHdrBySystemApi(draweeViewImg, TestFile.getFilePath(), true);
+        loadHdrBySystemApi(draweeViewImg, TestFile.getFilePath(), true);
 //        loadHdrBySystemApi2(draweeViewImg, TestFile.getFilePath(), true);
 
-        testHdrByFresco(draweeViewImg, TestFile.getFilePath(), true);
+//        testHdrByFresco(draweeViewImg, TestFile.getFilePath(), true);
     }
 
 
