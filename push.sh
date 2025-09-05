@@ -1,5 +1,11 @@
 #!/bin/bash
 
+adb push ./app/src/main/assets/new_test_06.jpg  sdcard/
+adb push ./app/src/main/assets/new_test_06.heic  sdcard/
+
+adb push ./app/src/main/assets/jpg_hdr_00.jpg  sdcard/
+adb push ./app/src/main/assets/hdr_00.heic  sdcard/
+
 adb push ./app/src/main/assets/apple_apple_gainmap.jpg  sdcard/
 adb push ./app/src/main/assets/apple_iso_gainmap.jpg  sdcard/
 
